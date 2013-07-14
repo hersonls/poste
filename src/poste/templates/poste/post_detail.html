@@ -1,0 +1,20 @@
+{% extends "poste/base.html" %}
+
+{% block container %}
+    <article class="post">
+        <header>{% block header %}
+            {% if object.title %}
+                <h2><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></h2>
+            {% endif %}
+        {% endblock header %}</header>
+
+        <div class="post-body">{% block body %}
+            {{ object.body|safe }}
+        {% endblock body %}</div>
+
+        <footer>{% block footer %}
+            <p>Author: {{ object.author }}</p>
+            <p>Pub date: {{ object.pub_date }}</p>
+        {% endblock footer %}</footer>
+    </article>
+{% endblock container %}

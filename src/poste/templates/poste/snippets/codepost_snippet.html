@@ -1,0 +1,13 @@
+{% extends "poste/snippets/base_snippet.html" %}
+
+{% block body %}
+    {% if obj.embed %}
+        {{ obj.embed|safe }}    
+    {% endif %}
+
+    {% if obj.code %}
+        <code>
+            {{ obj.code|escape }}
+        </code>
+    {% endif %}
+{% endblock body %}

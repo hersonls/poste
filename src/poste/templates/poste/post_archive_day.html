@@ -1,0 +1,6 @@
+{% extends "poste/base_post_list.html" %}
+{% load i18n %}
+
+{% block main_title %}{{ block.super }} - {{ day|date:"d" }}{% endblock %}
+
+{% block nav_date %}{% endblock %}

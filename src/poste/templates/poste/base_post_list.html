@@ -1,0 +1,28 @@
+{% extends "poste/base.html" %}
+{% load i18n %}
+{% load tz %}
+
+{% block main_title %}{{ block.super }} - {% trans "List" %}{% endblock %}
+
+{% block container %}
+    {% block nav_date %}
+        <section class="nav-date">
+            <header>
+                <h2>Date</h2>
+            </header>
+            <ul>
+                {% block nav_date_list %}
+                    {% for year in date_list %}
+                        <li>
+                            <a href="{% url 'poste_post_archive_year' year|utc|date:"Y" %}">{{ year|utc|date:"Y" }}</a> 
+                        </li>
+                    {% endfor %}
+                {% endblock %}
+            </ul>
+        </section>
+    {% endblock %}
+    
+    {% for obj in object_list %}
+        {% include obj.template %}
+    {% endfor %}
+{% endblock container %}

@@ -1,0 +1,13 @@
+{% extends "poste/base_post_list.html" %}
+{% load i18n %}
+{% load tz %}
+
+{% block main_title %}{{ block.super }} - {{ month|date:"F" }}{% endblock %}
+
+{% block nav_date_list %}
+    {% for date in date_list %}
+        <li>
+            <a href="{% url 'poste_post_archive_day' date|utc|date:"Y" date|utc|date:"m" date|utc|date:"d" %}">{% trans "Day" %} {{ date|utc|date:"d" }}</a> 
+        </li>
+    {% endfor %}
+{% endblock %}
