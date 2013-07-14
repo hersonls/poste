@@ -5,6 +5,13 @@ A extensible post system for Django, where you can build you own Post
 system in few minutes, with several kind of post, like Video Post, Text post, 
 Audio Post, Quote Post and your own custom Post.
 
+How to install, for now
+-----------------------
+
+Using pip+git:
+
+    pip install git+https://github.com/hersonls/poste.git
+
 How to use
 ----------
 
