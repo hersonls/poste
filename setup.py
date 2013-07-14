@@ -9,7 +9,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 setup(
     name='poste',
     version='0.1',
-    packages=['src'],
+    packages=['poste'],
     package_dir = {'': 'src'},
     include_package_data=True,
     license='BSD License',
