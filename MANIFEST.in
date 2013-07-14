@@ -1,4 +1,4 @@
 include LICENSE
 include README.rst
-recursive-include poste/static *
-recursive-include poste/templates *
+recursive-include src/poste/static *
+recursive-include src/poste/templates *
