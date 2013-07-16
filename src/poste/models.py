@@ -33,6 +33,10 @@ class Post(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
+        return ('poste_post_detail', (self.slug, ))
+
+    @models.permalink
+    def get_date_absolute_url(self):
         args = [
             self.pub_date.strftime("%Y"),
             self.pub_date.strftime("%m"),
@@ -40,6 +44,7 @@ class Post(models.Model):
             self.slug
         ]
         return ('poste_post_date_detail', args)
+
 
     def template(self):
         return '{0}/snippets/{1}_snippet.html'.format(self._meta.app_label, self._meta.object_name.lower())

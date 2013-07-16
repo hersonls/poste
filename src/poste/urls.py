@@ -1,10 +1,12 @@
 from django.conf.urls import patterns, url
+from django.views.generic import DetailView
 from django.views.generic import DayArchiveView
 from django.views.generic import YearArchiveView
 from django.views.generic import ArchiveIndexView
 from django.views.generic import MonthArchiveView
 
 from .models import Post
+from .views import PostDetailView
 from .views import PostDateDetailView
 
 
@@ -27,7 +29,7 @@ urlpatterns = patterns('',
         name="poste_post_date_detail"
     ),
     url(r'^(?P<slug>.*)/$',
-        DetailView.as_view(
+        PostDetailView.as_view(
             queryset=Post.objects.all().select_subclasses()
         ),
         name='poste_post_detail'
