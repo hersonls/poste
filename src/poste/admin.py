@@ -1,6 +1,6 @@
+from django.db import models
 from django.contrib import admin
 
-from .models import Post
 from .models import TextPost
 from .models import ImagePost
 from .models import Image
@@ -10,6 +10,7 @@ from .models import LinkPost
 from .models import ChatPost
 from .models import AudioPost
 from .models import VideoPost
+from .widgets import CKEditorWidget
 
 
 class BasePostAdmin(admin.ModelAdmin):
@@ -24,6 +25,10 @@ class TextPostAdmin(BasePostAdmin):
     list_display = ('timestamp', 'pub_date', 'title')
     list_filter = ('timestamp', 'pub_date')
     search_fields = ('title', 'body')
+
+    formfield_overrides = {
+        models.TextField: {'widget': CKEditorWidget},
+    }
 
 
 class ImagePostAdmin(BasePostAdmin):
@@ -42,6 +47,10 @@ class QuotePostAdmin(BasePostAdmin):
     list_display = ('timestamp', 'pub_date', 'title', 'quote', 'source')
     list_filter = ('timestamp', 'pub_date')
     search_fields = ('title', 'quote', 'source')
+
+    formfield_overrides = {
+        models.TextField: {'widget': CKEditorWidget},
+    }
 
 
 class LinkPostAdmin(BasePostAdmin):

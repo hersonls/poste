@@ -4,7 +4,13 @@
 
 {% block main_title %}{{ block.super }} - {% trans "List" %}{% endblock %}
 
-{% block container %}
+{% block col_left %}
+    {% for obj in object_list %}
+        {% include obj.template %}
+    {% endfor %}
+{% endblock col_left %}
+
+{% block col_right %}
     {% block nav_date %}
         <section class="nav-date">
             <header>
@@ -21,8 +27,4 @@
             </ul>
         </section>
     {% endblock %}
-    
-    {% for obj in object_list %}
-        {% include obj.template %}
-    {% endfor %}
-{% endblock container %}
+{% endblock col_right %}

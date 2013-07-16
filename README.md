@@ -45,3 +45,13 @@ Here is a several things what we need implement:
 
 - Tags
 - Feed RSS
+
+Author
+------
+
+Hersonls <hersonls@gmail.com>
+
+Contributors
+------------
+
+Rael Max <contato@raelmax.com>
