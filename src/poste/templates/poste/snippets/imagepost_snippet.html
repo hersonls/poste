@@ -1,5 +1,11 @@
 {% extends "poste/snippets/base_snippet.html" %}
 
 {% block body %}
-    <img src="{{ MEDIA_URL }}{{ obj.image }}">
+    {% if obj.image %}
+        <img src="{{ MEDIA_URL }}{{ obj.image }}">    
+    {% endif %}
+    
+    {% if obj.is_external_image %}
+        <img src="{{ obj.url }}">    
+    {% endif %}
 {% endblock body %}

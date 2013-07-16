@@ -59,7 +59,7 @@ class TextPost(Post):
 
 
 class ImagePost(Post):
-    image = models.ImageField(upload_to=file_upload_path, verbose_name=_('image'))
+    image = models.ImageField(upload_to=file_upload_path, verbose_name=_('image'), blank=True)
     url = models.URLField(_('external image URL'), blank=True)
 
     class Meta:
