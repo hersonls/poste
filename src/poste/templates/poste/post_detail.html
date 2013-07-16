@@ -4,10 +4,6 @@
 
 {% block main_title %}{{ block.super }} - {% trans "List" %}{% endblock %}
 
-{% block col_left %}
+{% block container %}
     {% include object.template %}
-{% endblock col_left %}
-
-{% block col_right %}
-    <a href="/blog/">List</a>
-{% endblock col_right %}
+{% endblock container %}
