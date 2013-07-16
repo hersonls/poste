@@ -1,16 +1,23 @@
-<article class="post">
-    <header>{% block header %}
-        {% if obj.title %}
-            <h2><a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a></h2>
-        {% endif %}
-    {% endblock header %}</header>
+{% load i18n %}
+{% load tz %}
 
-    <div class="post-body">{% block body %}
-        {{ obj.body|safe }}
-    {% endblock body %}</div>
+<article class="poste-post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+        <h2><time itemprop="datePublished" datetime="{{ obj.pub_date|utc|date:"Y\-m\-d" }}">{{ obj.pub_date|utc|date:"l, d N, Y" }}</time></h2>
+        <h3 itemprop="headline"><a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a></h3>
+    </header>
 
-    <footer>{% block footer %}
-        <p>Author: {{ obj.author }}</p>
-        <p>Pub date: {{ obj.pub_date }}</p>
-    {% endblock footer %}</footer>
+    <div class="body" itemprop="articleBody">
+        {% block body %}
+            {{ obj.body|safe }}
+        {% endblock body %}
+    </div>
+    
+    <footer>
+        {% block footer %}
+            <p itemscope itemtype="http://schema.org/Person">
+                {% trans "Author:" %} <span itemprop="name">{{ obj.author }}</span>
+            </p>
+        {% endblock footer %}
+    </footer>
 </article>

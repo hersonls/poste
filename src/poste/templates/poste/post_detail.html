@@ -1,20 +1,13 @@
 {% extends "poste/base.html" %}
+{% load i18n %}
+{% load tz %}
 
-{% block container %}
-    <article class="post">
-        <header>{% block header %}
-            {% if object.title %}
-                <h2><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></h2>
-            {% endif %}
-        {% endblock header %}</header>
+{% block main_title %}{{ block.super }} - {% trans "List" %}{% endblock %}
 
-        <div class="post-body">{% block body %}
-            {{ object.body|safe }}
-        {% endblock body %}</div>
+{% block col_left %}
+    {% include object.template %}
+{% endblock col_left %}
 
-        <footer>{% block footer %}
-            <p>Author: {{ object.author }}</p>
-            <p>Pub date: {{ object.pub_date }}</p>
-        {% endblock footer %}</footer>
-    </article>
-{% endblock container %}
+{% block col_right %}
+    <a href="/blog/">List</a>
+{% endblock col_right %}
