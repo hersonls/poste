@@ -2,8 +2,8 @@
 
 {% block body %}
     <p class="quote">
-        {{ obj.quote }}
+        {{ obj.quote|safe }}
     </p>
 
-    <p class="caption">{{ obj.source }}</p>
+    <p class="caption">{{ obj.source|safe }}</p>
 {% endblock body %}
